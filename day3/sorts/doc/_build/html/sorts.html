@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>sorts package &#8212; sorts 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="sorts" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="sorts-package">
+<h1>sorts package<a class="headerlink" href="#sorts-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-sorts.indexsort">
+<span id="sorts-indexsort-module"></span><h2>sorts.indexsort module<a class="headerlink" href="#module-sorts.indexsort" title="Permalink to this heading">¶</a></h2>
+<p>Sorts the data according to an index</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sorts.indexsort.sorted_index">
+<span class="sig-prename descclassname"><span class="pre">sorts.indexsort.</span></span><span class="sig-name descname"><span class="pre">sorted_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sorts.indexsort.sorted_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the data (ascending) according to index, i.e.</p>
+<blockquote>
+<div><p>data[i][index] &gt; data[j][index], for all i &gt; j</p>
+</div></blockquote>
+<p>INPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">:</span> <span class="n">to</span> <span class="n">sort</span>
+<span class="n">index</span><span class="p">:</span> <span class="n">default</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>OUPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">:</span> <span class="nb">sorted</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sorted_index</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">[(1, &#39;a&#39;, 6), (2, &#39;b&#39;, 8), (10, &#39;c&#39;, 1)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sorted_index</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[(10, &#39;c&#39;, 1), (1, &#39;a&#39;, 6), (2, &#39;b&#39;, 8)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-sorts.sorting">
+<span id="sorts-sorting-module"></span><h2>sorts.sorting module<a class="headerlink" href="#module-sorts.sorting" title="Permalink to this heading">¶</a></h2>
+<p>Accelerated sorting and selection functions using Numba.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sorts.sorting.heap_sort">
+<span class="sig-prename descclassname"><span class="pre">sorts.sorting.</span></span><span class="sig-name descname"><span class="pre">heap_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sorts.sorting.heap_sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a sorted numpy array (ascending)</p>
+<p>INPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">:</span>     <span class="n">Numpy</span> <span class="n">array</span>
+</pre></div>
+</div>
+<p>OUTPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ak</span><span class="p">:</span>    <span class="n">Sorted</span> <span class="n">Numpy</span> <span class="n">array</span>
+</pre></div>
+</div>
+<p>Implements heap sort from Press et al., Numerical Recipes, 3rd Ed.,
+Cambridge University Press, 2007.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">heap_sort</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">]))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sorts.sorting.selection">
+<span class="sig-prename descclassname"><span class="pre">sorts.sorting.</span></span><span class="sig-name descname"><span class="pre">selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sorts.sorting.selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value and index of the <span class="math notranslate nohighlight">\(K`th largest element in the numpy
+array `a\)</span>.</p>
+<p>INPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">:</span>     <span class="n">Numpy</span> <span class="n">array</span>
+<span class="n">K</span><span class="p">:</span>     <span class="nb">int</span>
+</pre></div>
+</div>
+<p>OUTPUT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">:</span>     <span class="n">The</span> <span class="n">Kth</span> <span class="n">largest</span> <span class="n">value</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">K</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="n">N</span> <span class="n">length</span> <span class="n">of</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">i</span><span class="p">:</span>     <span class="n">Index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Kth</span> <span class="n">largest</span> <span class="n">value</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">unique</span>
+       <span class="n">returns</span> <span class="n">the</span> <span class="n">first</span> <span class="n">index</span> <span class="n">such</span> <span class="n">that</span> <span class="n">s</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Implements selection from Press et al., Numerical Recipes, 3rd Ed.,
+Cambridge University Press, 2007.</p>
+<p>Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(10.0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">(5.0, 3)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-sorts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-sorts" title="Permalink to this heading">¶</a></h2>
+<p>The package sorts contains different utilities for sorting</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">sorts</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">sorts</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sorts package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">sorts</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">sorts</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, sh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/sorts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

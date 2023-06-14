@@ -5,6 +5,7 @@ Sorts the data according to an index
 
 import sys
 
+
 def sorted_index(data, index=0):
     """
     Sorts the data (ascending) according to index, i.e.
@@ -19,7 +20,7 @@ def sorted_index(data, index=0):
     OUPUT::
 
       data: sorted data
-    
+
     Examples
 
     >>> data = [(1, 'a', 6), (2, 'b', 8), (10, 'c', 1)]
@@ -34,7 +35,7 @@ def sorted_index(data, index=0):
     # def my_sort(a, b):
     #    return cmp(a[key], b[key])
     #
-    #return sorted(data, key=2)
+    # return sorted(data, key=2)
 
     # This works for both python 2.x and python 3.x
     def fkey(e):
@@ -42,11 +43,11 @@ def sorted_index(data, index=0):
 
     return sorted(data, key=fkey)
 
+
 def _test():
     import doctest
     doctest.testmod()
 
+
 if __name__ == '__main__':
     _test()
-
-        

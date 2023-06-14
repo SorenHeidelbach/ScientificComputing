@@ -6,6 +6,7 @@ Accelerated sorting and selection functions using Numba.
 from numba import jit
 import numpy as np
 
+
 @jit
 def selection(a, K):
     """
